@@ -1,5 +1,5 @@
 <script>
-	import Auth from '../lib/Auth.svelte';
+	import Auth from '$c/Auth.svelte';
 </script>
 
 <h1>Welcome to SvelteKit</h1>

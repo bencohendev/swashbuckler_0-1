@@ -12,7 +12,7 @@
 			alert('Check your email for the login link!');
 		} catch (error) {
 			if (error instanceof Error) {
-				alert(error.error_description || error.message);
+				alert(error.message);
 			} else {
 				console.log('unexpected error', error);
 			}
