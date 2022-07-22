@@ -1,8 +1,8 @@
 <script>
-	import { supabase } from '$lib/supabaseClient';
+	import { supabase } from '*lib/supabaseClient';
 
 	let loading = false;
-	let email = '';
+	let email;
 
 	const handleLogin = async () => {
 		try {
@@ -11,11 +11,7 @@
 			if (error) throw error;
 			alert('Check your email for the login link!');
 		} catch (error) {
-			if (error instanceof Error) {
-				alert(error.message);
-			} else {
-				console.log('unexpected error', error);
-			}
+			alert(error.error_description || error.message);
 		} finally {
 			loading = false;
 		}

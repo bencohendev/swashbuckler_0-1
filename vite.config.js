@@ -6,9 +6,9 @@ const config = {
 	plugins: [sveltekit()],
 	resolve: {
 		alias: {
-			$c: resolve('./src/components'),
-			$stores: resolve('./src/stores'),
-			$actions: resolve('./src/actions')
+			'*c': resolve('./src/components'),
+			'*stores': resolve('./src/stores'),
+			'*lib': resolve('./src/lib')
 		}
 	}
 };
