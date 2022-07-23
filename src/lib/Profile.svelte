@@ -1,7 +1,7 @@
 <script>
 	import { supabase } from '*lib/supabaseClient';
 	import { user } from '*stores/user';
-	import Avatar from '$lib/Avatar.svelte';
+	import Avatar from '*lib/Avatar.svelte';
 
 	let loading = true;
 	let username = null;
@@ -71,7 +71,11 @@
 	}
 </script>
 
-<form use:getProfile class="form-widget" on:submit|preventDefault={updateProfile}>
+<form
+	use:getProfile
+	class="form-widget"
+	on:submit|preventDefault={updateProfile}
+>
 	<div>
 		<label for="email">Email</label>
 		<input id="email" type="text" value={$user.email} disabled />
@@ -95,11 +99,17 @@
 	</div>
 
 	<div>
-		<button class="button block" on:click={signOut} disabled={loading}> Sign Out </button>
+		<button class="button block" on:click={signOut} disabled={loading}>
+			Sign Out
+		</button>
 	</div>
 </form>
 
-<form use:getProfile class="form-widget" on:submit|preventDefault={updateProfile}>
+<form
+	use:getProfile
+	class="form-widget"
+	on:submit|preventDefault={updateProfile}
+>
 	<!-- Add to body -->
 	<Avatar bind:path={avatar_url} on:upload={updateProfile} />
 
