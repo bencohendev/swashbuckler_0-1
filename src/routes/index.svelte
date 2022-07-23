@@ -1,7 +1,6 @@
 <script>
 	import { user } from '*stores/user';
 	import { supabase } from '*lib/supabaseClient';
-	import Test from '*lib/Test.svelte';
 	import Auth from '*lib/Auth.svelte';
 	import Profile from '*lib/Profile.svelte';
 
@@ -13,8 +12,7 @@
 	$: console.log($user);
 </script>
 
-<div class="container" style="padding: 50px 0 100px 0;">
-	ben <Test />
+<div class="container w-full h-screen grid justify-center items-center place-content-center">
 	{#if $user}
 		<Profile />
 	{:else}

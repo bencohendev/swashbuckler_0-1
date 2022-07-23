@@ -1,6 +1,7 @@
 <script>
 	import { supabase } from '*lib/supabaseClient';
 	import { user } from '*stores/user';
+	import Avatar from '$lib/Avatar.svelte';
 
 	let loading = true;
 	let username = null;
@@ -97,3 +98,19 @@
 		<button class="button block" on:click={signOut} disabled={loading}> Sign Out </button>
 	</div>
 </form>
+
+<form use:getProfile class="form-widget" on:submit|preventDefault={updateProfile}>
+	<!-- Add to body -->
+	<Avatar bind:path={avatar_url} on:upload={updateProfile} />
+
+	<!-- Other form elements -->
+</form>
+
+<style lang="scss">
+	input {
+		border: solid thin grey;
+	}
+	button {
+		border: solid thin red;
+	}
+</style>
