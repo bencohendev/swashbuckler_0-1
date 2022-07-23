@@ -7,12 +7,16 @@
 	user.set(supabase.auth.user());
 
 	supabase.auth.onAuthStateChange((_, session) => {
+		console.log('auth state change');
 		user.set(session.user);
+		supabase.auth.setAuth(session.access_token);
 	});
 	$: console.log($user);
 </script>
 
-<div class="container w-full h-screen grid justify-center items-center place-content-center">
+<div
+	class="container w-full h-screen grid justify-center items-center place-content-center"
+>
 	{#if $user}
 		<Profile />
 	{:else}

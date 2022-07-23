@@ -40,7 +40,6 @@
 			const updates = {
 				id: user.id,
 				username,
-				website,
 				avatar_url,
 				updated_at: new Date()
 			};
@@ -82,10 +81,6 @@
 	<div>
 		<label for="username">Name</label>
 		<input id="username" type="text" bind:value={username} />
-	</div>
-	<div>
-		<label for="website">Website</label>
-		<input id="website" type="website" bind:value={website} />
 	</div>
 
 	<div>
