@@ -15,7 +15,7 @@
 
 			let { data, error, status } = await supabase
 				.from('profiles')
-				.select(`username, website, avatar_url`)
+				.select(`username,  avatar_url`)
 				.eq('id', user.id)
 				.single();
 
@@ -23,7 +23,6 @@
 
 			if (data) {
 				username = data.username;
-				website = data.website;
 				avatar_url = data.avatar_url;
 			}
 		} catch (error) {
