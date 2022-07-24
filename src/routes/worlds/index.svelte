@@ -1,6 +1,7 @@
 <script>
 	import { user } from '*stores/user';
 	import { supabase } from '*lib/supabaseClient';
+	import Button from '*c/Button.svelte';
 
 	let value = '';
 	let worlds = [];
@@ -27,20 +28,15 @@
 </script>
 
 <div class="mt-8">
-	<h1>worlds</h1>
+	<h1 class="text-xl font-bold">worlds</h1>
 
-	<div>
+	<div class="my-8">
 		<input class="border  border-black" type="text" bind:value />
 	</div>
-	<button class="border  border-black" on:click={handleCreateWorld}
-		>create new world</button
-	>
+	<Button on:click={handleCreateWorld}>create new world</Button>
 
-	<button class="border  border-black" on:click={handleGetWorlds}
-		>get worlds</button
-	>
+	<Button sveltekit:prefetch on:click={handleGetWorlds}>get worlds</Button>
 </div>
-
 <div>
 	{#each worlds as world}
 		<div>{world.name}</div>

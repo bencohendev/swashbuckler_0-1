@@ -11,9 +11,9 @@
 	];
 </script>
 
-<div class="grid justify-between grid-flow-row">
+<div class="flex border">
 	{#each links as link}
 		{@const { url, label } = link}
-		<div><a class="text-blue-500" href={url}>{label}</a></div>
+		<div class="mr-8"><a class="text-blue-500" href={url}>{label}</a></div>
 	{/each}
 </div>
