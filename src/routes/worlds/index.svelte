@@ -39,6 +39,6 @@
 </div>
 <div>
 	{#each worlds as world}
-		<div>{world.name}</div>
+		<Button><a href="./worlds/{world.id}">{world.name}</a></Button>
 	{/each}
 </div>

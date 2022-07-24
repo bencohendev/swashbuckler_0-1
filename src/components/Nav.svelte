@@ -2,15 +2,15 @@
 	let links = [
 		{
 			label: 'Home',
-			url: './'
+			url: '/'
 		},
 		{
 			label: 'worlds',
-			url: './worlds'
+			url: '/worlds'
 		},
 		{
 			label: 'realtime test',
-			url: './realtime'
+			url: '/realtime'
 		}
 	];
 </script>
