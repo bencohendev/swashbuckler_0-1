@@ -3,27 +3,46 @@
 	import { supabase } from '*lib/supabaseClient';
 
 	let value = '';
-
+	let worlds = [];
 	const handleCreateWorld = async () => {
-		user.set(supabase.auth.user());
 		try {
 			const { data, error } = await supabase
 				.from('worlds')
-				.insert([{ name: value }]);
-			// console.log('success!', data);
+				.insert({ name: value, owner_id: $user.id });
+			console.log('success!', data);
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	const handleGetWorlds = async () => {
+		try {
+			let { data, error } = await supabase.from('worlds').select('*');
+			console.log('success!', data);
+			worlds = data;
 		} catch (error) {
 			console.error(error);
 		}
 	};
 </script>
 
-<div class="m-20">
+<div class="mt-8">
 	<h1>worlds</h1>
 
-	<div class="my-8">
+	<div>
 		<input class="border  border-black" type="text" bind:value />
 	</div>
 	<button class="border  border-black" on:click={handleCreateWorld}
 		>create new world</button
 	>
+
+	<button class="border  border-black" on:click={handleGetWorlds}
+		>get worlds</button
+	>
+</div>
+
+<div>
+	{#each worlds as world}
+		<div>{world.name}</div>
+	{/each}
 </div>
