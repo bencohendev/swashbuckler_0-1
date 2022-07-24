@@ -11,15 +11,15 @@
 			})
 			.subscribe();
 	};
-	subscribe();
+	//subscribe();
 
 	const changeVal = async () => {
 		try {
 			const { data, error } = await supabase
 				.from('realtime')
-				.update({ value })
+				.update({ value, jVal: [{ label: 'input', value: value }] })
 				.eq('id', 1);
-			console.log('success!', data);
+			console.log('success!', data, error);
 		} catch (error) {
 			console.error(error);
 		}
