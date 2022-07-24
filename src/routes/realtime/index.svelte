@@ -1,5 +1,6 @@
 <script>
 	import { supabase } from '*lib/supabaseClient.js';
+	import Editor from '*c/tiptap/Editor.svelte';
 	let value = '';
 
 	const subscribe = () => {
@@ -48,4 +49,11 @@
 <div class="my-8">
 	<div>see output below</div>
 	<div class="my-2 text-red-500">{value}</div>
+</div>
+
+<div>
+	<h1 class="text-xl font-bold">Tiptap Editor</h1>
+	<div class="border border-black">
+		<Editor />
+	</div>
 </div>
