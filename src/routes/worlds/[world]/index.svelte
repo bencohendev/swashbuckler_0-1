@@ -1,4 +1,5 @@
 <script>
+	import { onMount } from 'svelte';
 	import { supabase } from '*lib/supabaseClient.js';
 	import Editor from '*c/tiptap/Editor.svelte';
 	let value = '';
@@ -39,6 +40,9 @@
 		value = data[0].value;
 	};
 	getInitialValue();
+	onMount(() => {
+		console.log('world mounted');
+	});
 </script>
 
 <h1 class="text-5xl font-bold">

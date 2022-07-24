@@ -1,4 +1,5 @@
 <script>
+	import { page } from '$app/stores';
 	import { onMount, onDestroy } from 'svelte';
 	import { Editor } from '@tiptap/core';
 	import StarterKit from '@tiptap/starter-kit';
@@ -7,7 +8,10 @@
 	import { WebrtcProvider } from 'y-webrtc';
 	import * as Y from 'yjs';
 	let element;
-	let editor;
+	let editor, ydoc;
+
+	let { params } = $page;
+	console.log($page);
 
 	onMount(() => {
 		// // Set up the Hocuspocus WebSocket provider
@@ -15,11 +19,12 @@
 		// 	url: 'wss://socketsbay.com/wss/v2/2/demo/',
 		// 	name: 'example-document'
 		// });
-		const ydoc = new Y.Doc();
+		ydoc = new Y.Doc();
 
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const provider = new WebrtcProvider('tiptap-collaboration-extension', ydoc);
+		const provider = new WebrtcProvider(`${params.world}`, ydoc);
 		console.log(provider);
+		//`${Math.random}`
 		editor = new Editor({
 			element: element,
 			extensions: [
@@ -35,10 +40,11 @@
 			}
 		});
 	});
-	$: console.log(editor);
+	//$: console.log(editor);
 	onDestroy(() => {
 		if (editor) {
 			editor.destroy();
+			ydoc.destroy();
 		}
 	});
 </script>
