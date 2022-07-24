@@ -4,23 +4,28 @@
 	import StarterKit from '@tiptap/starter-kit';
 	import Collaboration from '@tiptap/extension-collaboration';
 	import { HocuspocusProvider } from '@hocuspocus/provider';
-
+	import { WebrtcProvider } from 'y-webrtc';
+	import * as Y from 'yjs';
 	let element;
 	let editor;
 
 	onMount(() => {
-		// Set up the Hocuspocus WebSocket provider
-		const provider = new HocuspocusProvider({
-			url: 'ws://127.0.0.1:1234',
-			name: 'example-document'
-		});
+		// // Set up the Hocuspocus WebSocket provider
+		// const provider = new HocuspocusProvider({
+		// 	url: 'wss://socketsbay.com/wss/v2/2/demo/',
+		// 	name: 'example-document'
+		// });
+		const ydoc = new Y.Doc();
+
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		const provider = new WebrtcProvider('tiptap-collaboration-extension', ydoc);
 		console.log(provider);
 		editor = new Editor({
 			element: element,
 			extensions: [
 				StarterKit,
 				Collaboration.configure({
-					document: provider.document
+					document: ydoc
 				})
 			],
 			content: '<p>Hello World! 🌍️ </p>',
