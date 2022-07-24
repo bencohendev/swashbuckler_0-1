@@ -7,6 +7,10 @@
 		{
 			label: 'worlds',
 			url: './worlds'
+		},
+		{
+			label: 'realtime test',
+			url: './realtime'
 		}
 	];
 </script>
