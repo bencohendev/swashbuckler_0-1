@@ -9,7 +9,6 @@
 	supabase.auth.onAuthStateChange((_, session) => {
 		console.log('auth state change');
 		user.set(session.user);
-		supabase.auth.setAuth(session.access_token);
 	});
 	$: console.log($user);
 </script>
