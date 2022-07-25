@@ -11,6 +11,10 @@
 		{
 			label: 'realtime test',
 			url: '/realtime'
+		},
+		{
+			label: 'search',
+			url: '/search'
 		}
 	];
 </script>
